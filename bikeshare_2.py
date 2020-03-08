@@ -122,16 +122,16 @@ def get_filters():
     print('-'*40)
     return city, month, day
 
-def load_data(city, month, day):
+def load_raw_data(city, month, day):
     """
-    Loads data for the specified city and filters by month and day if applicable.
+    Loads raw data for the specified city and filters by month and day if applicable.
 
     Args:
         (str) city - name of the city to analyze
         (str) month - name of the month to filter by, or "all" to apply no month filter
         (str) day - name of the day of week to filter by, or "all" to apply no day filter
     Returns:
-        df - Pandas DataFrame containing city data filtered by month and day
+        df - Pandas DataFrame containing city raw data filtered by month and day
     """
     df = pd.read_csv(CITY_DATA[city])
 
@@ -256,27 +256,30 @@ def display_raw_data(df):
     """
     Asks user if they want to see the raw data in the data frame.
     """
+    RAW_DATA_INCREMENT = 5
     ask_raw_data = "Do you want to see the raw data? Enter yes or no.\n"
-    ask_more_data = "Do you want to see 5 more records? Enter yes or no.\n"
+    ask_more_data = 'Do you want to see {} more records? Enter yes or no.\n'.format(RAW_DATA_INCREMENT)
     error_response = "Sorry, that is an invalid response. "
     start = 0
-    end = 5
+    end = RAW_DATA_INCREMENT
 
     while True:
         try:
+            # asking to display for raw data
             response = input(ask_raw_data).strip().lower()
             if response == 'yes':
                 print(df[start:end])
-                start += 5
-                end += 5
+                start += RAW_DATA_INCREMENT
+                end += RAW_DATA_INCREMENT
 
                 while True:
                     try:
+                        # asking to display more raw data
                         response = input(ask_more_data).strip().lower()
                         if response == 'yes':
                             print(df[start:end])
-                            start += 5
-                            end += 5
+                            start += RAW_DATA_INCREMENT
+                            end += RAW_DATA_INCREMENT
                             continue
                         if response == 'no':
                             break
@@ -305,7 +308,7 @@ def main():
     """
     while True:
         city, month, day = get_filters()
-        df = load_data(city, month, day)
+        df = load_raw_data(city, month, day)
         time_stats(df)
         station_stats(df)
         trip_duration_stats(df)
