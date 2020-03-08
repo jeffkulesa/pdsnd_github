@@ -299,6 +299,10 @@ def display_raw_data(df):
             break
 
 def main():
+    """
+    Allows user to pick city, month, and day filters to be used to generate analysis
+    of bike share data. Also can display the raw data used in the analysis.
+    """
     while True:
         city, month, day = get_filters()
         df = load_data(city, month, day)
