@@ -264,6 +264,7 @@ def display_raw_data(df):
 
     while True:
         try:
+            # asking to display for raw data
             response = input(ask_raw_data).strip().lower()
             if response == 'yes':
                 print(df[start:end])
@@ -272,6 +273,7 @@ def display_raw_data(df):
 
                 while True:
                     try:
+                        # asking to display more raw data
                         response = input(ask_more_data).strip().lower()
                         if response == 'yes':
                             print(df[start:end])
