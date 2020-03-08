@@ -256,11 +256,12 @@ def display_raw_data(df):
     """
     Asks user if they want to see the raw data in the data frame.
     """
+    RAW_DATA_INCREMENT = 5
     ask_raw_data = "Do you want to see the raw data? Enter yes or no.\n"
-    ask_more_data = "Do you want to see 5 more records? Enter yes or no.\n"
+    ask_more_data = 'Do you want to see {} more records? Enter yes or no.\n'.format(RAW_DATA_INCREMENT)
     error_response = "Sorry, that is an invalid response. "
     start = 0
-    end = 5
+    end = RAW_DATA_INCREMENT
 
     while True:
         try:
@@ -268,8 +269,8 @@ def display_raw_data(df):
             response = input(ask_raw_data).strip().lower()
             if response == 'yes':
                 print(df[start:end])
-                start += 5
-                end += 5
+                start += RAW_DATA_INCREMENT
+                end += RAW_DATA_INCREMENT
 
                 while True:
                     try:
@@ -277,8 +278,8 @@ def display_raw_data(df):
                         response = input(ask_more_data).strip().lower()
                         if response == 'yes':
                             print(df[start:end])
-                            start += 5
-                            end += 5
+                            start += RAW_DATA_INCREMENT
+                            end += RAW_DATA_INCREMENT
                             continue
                         if response == 'no':
                             break
