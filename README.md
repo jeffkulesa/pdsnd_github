@@ -17,7 +17,6 @@ washington.csv - raw bike share data from washington
 
 ### Credits
 Udacity Intro to Version Control - https://classroom.udacity.com/nanodegrees/nd104-ent/parts/e325d5cc-ccd1-4ca8-a562-7eed09ab76c7
-
 Git docs - https://git-scm.com/doc
-
 Udacity Git style guide - https://udacity.github.io/git-styleguide/
+Atlassian Git info - https://www.atlassian.com/git/tutorials/setting-up-a-repository
