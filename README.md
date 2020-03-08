@@ -5,7 +5,7 @@ March 8th 2020
 Udacity Bike Share Analysis
 
 ### Description
-Describe what your project is about and what it does
+This project allows you to analyze bike share data from different cities.  You pick one city at a time to analyze.  You can also review the raw data that was used for the analysis.
 
 ### Files used
 Include the files used
